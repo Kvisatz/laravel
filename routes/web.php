@@ -1,5 +1,9 @@
 <?php
-use App\Http\Controllers\ProductController;
+
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\IndexController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +15,13 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'indexAction']);
 
-Route::get('/product', [ProductController::class, 'productAction']);
-Route::post('/obr', [ProductController::class, 'obrAction']);
+Route::get('/category', [IndexController::class, 'categoryAction']);
+
+Route::get('/product', [IndexController::class, 'productAction']);
+
+Route::get('/cart', [IndexController::class, 'cartAction']);
+
+Route::get('/cabinet', [IndexController::class, 'cabinetAction']);
+
