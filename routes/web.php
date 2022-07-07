@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
@@ -10,10 +13,19 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [IndexController::class, 'indexAction']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/category', [IndexController::class, 'categoryAction']);
 
-Route::get('/product', [ProductController::class, 'productAction']);
-Route::post('/obr', [ProductController::class, 'obrAction']);
+Route::get('/product', [IndexController::class, 'productAction']);
+
+Route::get('/cart', [IndexController::class, 'cartAction']);
+
+Route::get('/cabinet', [IndexController::class, 'cabinetAction']);
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });

@@ -1,29 +1,17 @@
 <?php
-namespace App\Http\Controllers;
+	namespace App\Http\Controllers;
+	use App\Http\Controllers\Controller;
+	use Illuminate\Http\Request;
+	use Illuminate\Support\Facades\Redirect;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-class ProductController extends Controller{
-
-	public function productAction(){
-		return view('pages.product');
-	}
-	public function obrAction(Request $request){
-		$dataId = [];
-		if(isset($request->third)){
-			$dataId[]=$request->third;
+	class ProductController extends Controller{
+		
+		public function productsAction(Request $request){
+			
+			return view('pages.product');
 		}
-		if(isset($request->second)){
-			$dataId[]=$request->second;
+		public function obrabAction(Request $request){
+			dd($request);
+			return Redirect::route('contacts', compact('status'));
 		}
-		if(isset($request->first)){
-			$dataId[]=$request->first;
-		}
-		return redirect()->action('ProductController@productResult', compact('dataId'));
 	}
-	public function productResult(){
-		return view('pages.product-result');
-	}
-
-}
