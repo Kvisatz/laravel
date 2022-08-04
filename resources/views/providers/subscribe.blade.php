@@ -4,8 +4,8 @@
 
                 <div class="col-12 col-md-6 m-b-30 aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
                     <div class="newsletter-content">
-                        <h3 class="title">Sign Up for Newsletters</h3>
-                        <p>Be the First to Know. Sign up for newsletter today</p>
+                        <h3 class="title">{{ $data->name }}</h3>
+                        <p>{{ $data->content }}</p>
                     </div>
                 </div>
 

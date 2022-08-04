@@ -66,6 +66,62 @@
                     <!-- Shop Wrapper Start -->
                     <div class="row shop_wrapper grid_3">
 
+
+                        @foreach($category->products as $product)
+                            <!-- Single Product Start -->
+                            <div class="col-lg-4 col-md-4 col-sm-6 product">
+                                <div class="product-inner">
+                                    <div class="thumb">
+                                        <a href="single-product.html" class="image">
+                                            <img class="fit-image" src="/assets/images/{{ $product->img }}" alt="Product">
+                                        </a>
+                                        <span class="badges">
+                                                <span class="sale">-18%</span>
+                                        </span>
+                                        <div class="action-wrapper">
+                                            <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
+                                            <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
+                                            <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <h5 class="title"><a href="single-product.html">{{ $product->name }}</a></h5>
+                                        <span class="rating">
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </span>
+                                        <span class="price">
+                                            <span class="new">{{ $product->price }}</span>
+                                            @if($product->old_price)
+                                                <span class="old">{{ $product->old_price }}</span>
+                                            @endif
+                                        </span>
+                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                        <!-- Cart Button Start -->
+                                        <div class="cart-btn action-btn">
+                                            <div class="action-cart-btn-wrapper d-flex">
+                                                <div class="add-to_cart">
+                                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="cart.html">Add to cart</a>
+                                                </div>
+                                                <a href="wishlist.html" title="Wishlist" class="action"><i class="ti-heart"></i></a>
+                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- Cart Button End -->
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+
+
+
+
+
                         <!-- Single Product Start -->
                         <div class="col-lg-4 col-md-4 col-sm-6 product">
                             <div class="product-inner">

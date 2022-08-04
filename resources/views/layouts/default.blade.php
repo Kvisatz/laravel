@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amber - Pet Care Bootstrap 5 Template</title>
+    <title>{{ $page[0]->title }}</title>
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
     <!-- Vendor CSS (Icon Font) -->
 
@@ -35,9 +35,9 @@
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
 
 
-    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
 
 
 
@@ -92,95 +92,14 @@
                         <!-- Header Logo Start -->
                         <div class="col-lg-3 col-md-4 col-6">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo" /></a>
+                                <a href="index.html"><img src="/assets/images/logo/logo.png" alt="Site Logo" /></a>
                             </div>
                         </div>
                         <!-- Header Logo End -->
 
                         <!-- Header Menu Start -->
                         <div class="col-lg-6 d-none d-lg-block">
-                            {!! $menu !!}
-                            <!-- <div class="main-menu">
-                                <ul>
-                                    <li class="has-children">
-                                        <a href="#">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home 1</a></li>
-                                            <li><a href="index-2.html">Home 2</a></li>
-                                            <li><a href="index-3.html">Home 3</a></li>
-                                            <li><a href="index-4.html">Home 4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children position-static">
-                                        <a href="#">Shop</a>
-                                        <ul class="mega-menu">
-                                            <li class="mega-menu-col">
-                                                <h4 class="mega-menu-title">Shop Layout</h4>
-                                                <ul class="m-b-n10">
-                                                    <li><a href="shop.html">Shop Grid</a></li>
-                                                    <li><a href="shop-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a href="shop-list-fullwidth.html">List Fullwidth</a></li>
-                                                    <li><a href="shop-list-left-sidebar.html">List Left Sidebar</a></li>
-                                                    <li><a href="shop-list-right-sidebar.html">List Right Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col">
-                                                <h4 class="mega-menu-title">Product Layout</h4>
-                                                <ul class="m-b-n10">
-                                                    <li><a href="single-product.html">Single Product</a></li>
-                                                    <li><a href="single-product-sale.html">Single Product Sale</a></li>
-                                                    <li><a href="single-product-variable.html">Single Product Variable</a></li>
-                                                    <li><a href="single-product-countdown.html">Single Product Countdown</a></li>
-                                                    <li><a href="single-product-affiliate.html">Single Product Affiliate</a></li>
-                                                    <li><a href="single-product-slider.html">Single Product Slider</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col">
-                                                <h4 class="mega-menu-title">Other Pages</h4>
-                                                <ul class="m-b-n10">
-                                                    <li><a href="my-account.html">My Account</a></li>
-                                                    <li><a href="login.html">Login | Register</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col">
-                                                <div class="megamenu-image">
-                                                    <a href="shop.html">
-                                                        <img class="fit-image" src="assets/images/header/mega-menu.png" alt="Megamenu Image">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="error-404.html">Error 404</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="#">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="blog-details-sidebar.html">Blog Details Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div> -->
+                            {!! $widget_menu_top !!}
                         </div>
                         <!-- Header Menu End -->
 
@@ -228,7 +147,7 @@
                                                 <!-- Single Cart Product Start -->
                                                 <div class="single-cart-product">
                                                     <div class="cart-product-thumb">
-                                                        <a href="single-product.html"><img src="assets/images/header/header-cart/1.png" alt="Cart Product"></a>
+                                                        <a href="single-product.html"><img src="/assets/images/header/header-cart/1.png" alt="Cart Product"></a>
                                                     </div>
                                                     <div class="cart-product-content">
                                                         <h3 class="title"><a href="single-product.html">Basic Dog Trainning</a></h3>
@@ -257,7 +176,7 @@
                                                 <!-- Single Cart Product Start -->
                                                 <div class="single-cart-product">
                                                     <div class="cart-product-thumb">
-                                                        <a href="single-product.html"><img src="assets/images/header/header-cart/2.png" alt="Cart Product"></a>
+                                                        <a href="single-product.html"><img src="/assets/images/header/header-cart/2.png" alt="Cart Product"></a>
                                                     </div>
                                                     <div class="cart-product-content">
                                                         <h3 class="title"><a href="single-product.html">Wait, You Need This</a></h3>
@@ -332,7 +251,7 @@
 
     @yield('content')
 
-
+    
     {!! $widget !!}
     
 
@@ -758,11 +677,11 @@
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
 
 
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/plugins.min.js"></script>
+    <script src="/assets/js/vendor.min.js"></script>
+    <script src="/assets/js/plugins.min.js"></script>
 
     <!--Main JS-->
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>
