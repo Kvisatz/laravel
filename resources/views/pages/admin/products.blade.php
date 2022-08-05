@@ -65,7 +65,8 @@
                   <div class="table-responsive">
                     <table class="table align-middle table-striped">
                       <tbody>
-                        @foreach($products as $product)
+                       {!! $all_products !!}
+                        <!-- @foreach($products as $product)
                           <tr>
                             <td>
                               <div class="form-check">
@@ -93,7 +94,8 @@
                               </div>
                             </td>
                           </tr>
-                        @endforeach
+                        @endforeach -->
+
                       </tbody>
                     </table>
                   </div>
@@ -125,8 +127,14 @@
         console.log(request);
          request.addEventListener('load', ()=>{
             if(request.status == 200 && request.response != 'error'){
-                console.log(request.response);
-                //console.log(obj); 
+                let obj = request.response;
+                console.log(obj);
+                let form = document.querySelector(".table tbody")
+                
+                form.innerHTML = "";
+                form.innerHTML += obj;
+                console.log(form);
+                
             }
             else{
                 console.log("error");

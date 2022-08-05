@@ -3,7 +3,6 @@
 	namespace App\Http\Controllers;
 	use App\Http\Controllers\Controller;
 	use Illuminate\Http\Request;
-	use Illuminate\Http\Response;
 	use Illuminate\Support\Facades\Redirect;
 	use Illuminate\Support\Facades\Validator;
 	use Illuminate\Support\Facades\Auth;
@@ -62,24 +61,17 @@
 			return redirect()->route('login');
 		}
 
-		public function productsAction(Request $request, Response $response){
+		public function productsAction(Request $request){
 			
 			$template = $this->template;
-			
-			$products = Product::paginate(2);
 
-			//dd($products);
-			if($response !== null){
-				$products = Product::paginate(2);	
-				//dd($response);
+			if($request->id === null){
+				//dd($request);
+				$products = Product::paginate(2);
 			}
-			else{
-				$products = Product::where('category_id', $response->content)->paginate(2);	
-				dd($response);
-
-			}
-			
-			
+			// else{
+			// 	$products = Product::where('category_id', $request->id)->paginate(2);
+			// }
 			$categories = Category::get();
 
 			return view('pages.admin.products', compact('template', 'products', 'categories'));
@@ -88,12 +80,14 @@
 		public function productsfilterAction(Request $request){
 			//dd($request);
 			if($request->id == 0){
-				$cat_id = 1;
+				// dd($request);
+				$products = Product::paginate(2);
+				
 			}
 			else{
-				$cat_id = $request->id;
+				$products = Product::where('category_id', $request->id)->paginate(2);
 			}
-			return response($cat_id);
+			return view('providers.filter', compact('products'));
 		}
 	
 	}
