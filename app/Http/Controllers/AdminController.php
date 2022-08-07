@@ -8,6 +8,7 @@
 	use Illuminate\Support\Facades\Auth;
 	use App\Models\Product;
 	use App\Models\Category;
+	use App\Models\Status;
 
 
 	class AdminController extends Controller{
@@ -65,29 +66,57 @@
 			
 			$template = $this->template;
 
-			if($request->id === null){
-				//dd($request);
-				$products = Product::paginate(2);
-			}
-			// else{
-			// 	$products = Product::where('category_id', $request->id)->paginate(2);
-			// }
+			
+			$products = Product::paginate(5);
+			
 			$categories = Category::get();
+			$statuses = Status::get();
 
-			return view('pages.admin.products', compact('template', 'products', 'categories'));
+			return view('pages.admin.products', compact('template', 'products', 'categories', 'statuses'));
 		}
 
 		public function productsfilterAction(Request $request){
 			//dd($request);
-			if($request->id == 0){
-				// dd($request);
-				$products = Product::paginate(2);
-				
+
+			if($request->category == 0 && $request->category == 0){
+				return redirect()->route('allproducts');
 			}
 			else{
-				$products = Product::where('category_id', $request->id)->paginate(2);
+				$data = [
+							'cat_id'=>$request->category,
+							//'data'=>$request->data,
+							'status_id'=>$request->status,
+						];
+				return redirect()->route('filterproducts', [
+																'cat_id' => $request->category,
+																//'data'=>$request->data,
+																'status_id'=>$request->status	
+															]);
+
 			}
-			return view('providers.filter', compact('products'));
+
+		}
+
+		public function productsfilterresultAction(Request $request){
+			
+			$template = $this->template;
+			$products = Product::where('category_id', $request->cat_id)
+			->where('status_id', $request->status_id)
+			->paginate(5);
+			if($request->cat_id == 0){
+				$products = Product::where('status_id', $request->status_id)
+								->paginate(5);
+			}
+			if(!$request->status_id){
+				$products = Product::where('category_id', $request->cat_id)
+								->paginate(5);
+			}
+			
+			
+			$categories = Category::get();
+			$statuses = Status::get();
+
+			return view('pages.admin.products', compact('template', 'products', 'categories', 'statuses'));
 		}
 	
 	}

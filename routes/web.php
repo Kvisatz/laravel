@@ -35,5 +35,10 @@ Route::controller(AdminController::class)->group(function () {
 	Route::get('/admin/logout', 'logoutAction');
 	Route::post('/admin/login-request', 'loginrequestAction');
 	Route::get('/admin/products', 'productsAction')->name('allproducts');
-	Route::get('/admin/products-category', 'productsfilterAction');
+	Route::get('/admin/productfilter', 'productsfilterAction');
+	Route::get('/admin/category/{cat_id}/status/{status_id}', 'productsfilterresultAction', function($cat_id, $status_id){
+		
+		
+	})->name('filterproducts');
+
 });

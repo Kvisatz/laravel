@@ -199,8 +199,8 @@ return [
         App\Providers\SubscribeServiceProvider::class,
         App\Providers\MenutopServiceProvider::class,
         App\Providers\PaginateServiceProvider::class,
-        App\Providers\ProductServiceProvider::class,
-        //App\Providers\ProductListServiceProvider::class,
+        //App\Providers\ProductServiceProvider::class,
+        //App\Providers\ProductAllServiceProvider::class,
         //App\Providers\FilterProducttServiceProvider::class,
 
         

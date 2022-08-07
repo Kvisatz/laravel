@@ -34,39 +34,57 @@
 
               <div class="card">
                 <div class="card-header py-3">
-                  <div class="row align-items-center m-0">
-                    <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
-                        <select class="form-select">
-                            <option value="0" selected="selected">All category</option>
-                            @foreach($categories as $category)
-                              <option value="{{ $category->id }}" class="category">{{ $category->name }}</option>
-                            @endforeach
-                            <!-- <option>Fashion</option>
-                            <option>Electronics</option>
-                            <option>Furniture</option>
-                            <option>Sports</option> -->
-                        </select>
+                  <form action="/admin/productfilter" method="GET">
+                    @csrf
+                    <div class="row align-items-center m-0">
+                      <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
+                          <select class="form-select" name="category">
+                              <option value="0" selected="selected" class="category">All category</option>
+                              @foreach($categories as $category)
+                                <option value="{{ $category->id }}" class="category">{{ $category->name }}</option>
+                              @endforeach
+                              <!-- <option>Fashion</option>
+                              <option>Electronics</option>
+                              <option>Furniture</option>
+                              <option>Sports</option> -->
+                             
+                                <!-- <script>
+                                  let categoryValue = document.querySelector('.form-select');
+                                  console.log(categoryValue.value);
+                                  if(categoryValue.value == 0 || categoryValue.value == undefined){
+
+                                  }
+                                  let selectedEls = document.querySelectorAll('.category');
+                                  for(let selectedEl of selectedEls){
+                                    console.log(selectEl);
+                                  }
+                                </script> -->
+                              
+                          </select>
+                      </div>
+                      <div class="col-md-2 col-6">
+                          <input type="date" class="form-control" name="date" value="0">
+                      </div>
+                      <div class="col-md-2 col-6">
+                          <select class="form-select" name="status">
+                              <option value="0" class="status">Status</option>
+                              @foreach($statuses as $status)
+                                <option value="{{ $status->id }}" class="status">{{ $status->name }}</option>
+                              @endforeach
+                             
+                          </select>
+                      </div>
                     </div>
-                    <div class="col-md-2 col-6">
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="col-md-2 col-6">
-                        <select class="form-select">
-                            <option>Status</option>
-                            <option>Active</option>
-                            <option>Disabled</option>
-                            <option>Show all</option>
-                        </select>
-                    </div>
-                 </div>
+                    <input type="submit" value="Apply" class="btn btn-primary">
+                  </form>
+                  
                 </div>
                 <div class="card-body">
-
                   <div class="table-responsive">
                     <table class="table align-middle table-striped">
                       <tbody>
-                       {!! $all_products !!}
-                        <!-- @foreach($products as $product)
+                        
+                        @foreach($products as $product)
                           <tr>
                             <td>
                               <div class="form-check">
@@ -76,16 +94,16 @@
                             <td class="productlist">
                               <a class="d-flex align-items-center gap-2" href="#">
                                 <div class="product-box">
-                                    <img src="https://via.placeholder.com/400X300" alt="">
+                                    <img src="/assets/images/{{ $product->img }}" alt="">
                                 </div>
                                 <div>
                                     <h6 class="mb-0 product-title">{{ $product->name }}</h6>
                                 </div>
-                               </a>
+                                </a>
                             </td>
                             <td><span>${{ $product->price }}</span></td>
-                            <td><span class="badge rounded-pill alert-success">Active</span></td>
-                            <td><span>5-31-2020</span></td>
+                            <td><span class="badge rounded-pill alert-success">{{ $product->status->name }}</span></td>
+                            <td><span>{{ $product->add_date }}</span></td>
                             <td>
                               <div class="d-flex align-items-center gap-3 fs-6">
                                 <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a>
@@ -94,12 +112,13 @@
                               </div>
                             </td>
                           </tr>
-                        @endforeach -->
+                        @endforeach
 
                       </tbody>
                     </table>
                   </div>
-            {{ $products->links() }}
+                  {{ $products->links() }}
+                  
             <!-- <nav class="float-end mt-4" aria-label="Page navigation">
               <ul class="pagination">
 
@@ -116,7 +135,7 @@
 
  </main>  
   <!--end page main-->
-  <script>
+  <!-- <script>
     let categories = document.querySelector('.form-select');
     console.log(categories.value);
     categories.addEventListener('change', ()=>{
@@ -145,5 +164,5 @@
         request.send();
     })
     
-  </script>
+  </script> -->
 @endsection

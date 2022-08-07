@@ -15,4 +15,8 @@
 	    {
 	        return $this->belongsTo(Category::class, 'category_id');
 	    }
+		public function status()
+	    {
+	        return $this->belongsTo(Status::class, 'status_id');
+	    }
 	}
